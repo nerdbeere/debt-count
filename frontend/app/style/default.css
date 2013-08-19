@@ -1,0 +1,26 @@
+.big-num {
+    text-align: center;
+    width: 100%;
+    font-size: 800%;
+    background: #DDD;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+btn-fixed-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.overline {
+    text-align: center;
+    font-size: 200%;
+}
+
+.overviewWrapper {
+    padding: 10px;
+}
