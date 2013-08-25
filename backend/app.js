@@ -9,7 +9,10 @@ var express = require('express')
 var app = express();
 
 var io = require('socket.io').listen(3001);
-var kisses = {};
+var kisses = {
+    'julian': 0,
+    'marina': 0
+};
 
 io.sockets.on('connection', function (socket) {
     socket.emit('data', kisses);
@@ -21,6 +24,13 @@ io.sockets.on('connection', function (socket) {
            kisses[name] = data[name];
        }
         socket.broadcast.emit('data', kisses);
+        socket.emit('data', kisses);
+    });
+
+    socket.on('removeKiss', function(data) {
+        kisses[data.name] = kisses[data.name] - data.amount;
+        socket.broadcast.emit('data', kisses);
+        socket.emit('data', kisses);
     });
 });
 

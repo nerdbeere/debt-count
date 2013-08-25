@@ -27,6 +27,15 @@ Kiss.App.factory('Kiss', function($http, $rootScope) {
             }
             kissCount[name] += plus;
             push();
+        },
+        remove: function(name, amount) {
+            if(!name || name === '') {
+                return false;
+            }
+            if(typeof kissCount[name] === 'undefined') {
+                kissCount[name] = 0;
+            }
+            socket.emit('removeKiss', {name: name, amount: amount});
         }
     };
 });

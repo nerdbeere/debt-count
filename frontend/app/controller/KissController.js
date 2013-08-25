@@ -6,4 +6,9 @@ Kiss.App.controller('KissController', function($scope, $routeParams, Kiss) {
         Kiss.add($routeParams.name, plus);
         $scope.kissCount = Kiss.get($routeParams.name);
     }
+
+    $scope.remove = function(amount) {
+        Kiss.remove($routeParams.name, amount);
+        $scope.kissCount = Kiss.get($routeParams.name);
+    }
 });
